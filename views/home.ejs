@@ -1,0 +1,34 @@
+<%- include('./header') %>
+
+  <section class="m-5">
+    <div class="my-upload-cont text-center my-test">
+      <div class="d-flex justify-content-center">
+        <div class="card">
+          <img src="/assets/upload.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <form action="/api/export" method="post" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="excelfile" class="form-label"></label>
+                <input class="form-control" type="file" name="excelfile">
+              </div>
+              <input type="submit" class="btn-primary mb-3" value="UPLOAD">
+            </form>
+            <% if(locals.downloadUrl) { %>
+              <div class="d-flex justify-content-center">
+                <div class="input-group mb-3" style="max-width: 576px;">
+                  <input type="text" id="downloadurl" value="<%= downloadUrl %>" class="form-control"
+                    placeholder="download url" aria-label="download url" aria-describedby="my-button-addon">
+                  <button class="btn btn-secondary" type="button" id="my-button-addon">📑</button>
+                </div>
+              </div>
+              <% } %>
+                <% if(locals.message) { %>
+                  <%= message %>
+                    <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('./footer') %>
